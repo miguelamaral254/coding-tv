@@ -60,23 +60,20 @@ const RemoteControl: React.FC = () => {
         <div className="absolute top-0 left-0 w-full h-2 bg-black"></div>
         <TVScreen channel={status.channel} isOn={status.isOn} />
       </div>
-      <div className="p-4 bg-gray-800 text-white rounded-md w-48 relative">
             <h2 className="text-xl mb-4">Remote Control</h2>
-            <button className="control-button" onClick={handleTurnOnOff}>
-          {status.isOn ? (
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 3v10a1 1 0 001 1h2a1 1 0 001-1V3m-6 18h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v13a2 2 0 002 2z" />
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          )}
-          Turn {status.isOn ? "Off" : "On"}
-        </button>
+      <div className="p-4 bg-gray-800 text-white rounded-md w-48 relative">
+            <button className="flex py-2 px-3" onClick={handleTurnOnOff}>
+      <img src="/btns/controlbtn.svg" className="h-6 w-6 mr-2" alt="Control Button" />
+      
+    </button>
+
+
+
         <div className='bg-black p-2'>
-            <div className="mb-2">TV is {status.isOn ? "ON" : "OFF"}</div>
+        <div className={`mb-2 ${status.isOn ? 'bg-green-500' : 'bg-red-500'} p-2 text-white rounded-md`}>
+  TV is {status.isOn ? "ON" : "OFF"}
+</div>
+
             <div className="mb-2">Channel: {status.channel}</div>
             <div className="mb-4">Volume: {status.volume}</div>
                 <input
