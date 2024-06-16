@@ -84,9 +84,17 @@ const RemoteControl: React.FC = () => {
                   onChange={(e) => setInputChannel(Number(e.target.value))}
                 />
         </div>
-        <button className="px-4 py-2 bg-blue-500 rounded mt-4" onClick={handleSetChannel}>
-          Set Channel
-        </button>
+        <div className="flex justify-between p-3">
+          <button className="p-2 bg-blue-500 rounded  w-ful" onClick={handleSetChannel}>
+            Set Channel
+          </button>
+          <button className="p-2 bg-blue-500 rounded" onClick={handleBackspace}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Backspace
+          </button>
+        </div>
         <div className='flex w-full justify-between'>
             <div className='flex flex-col items-center py-5'>
                 <button className="control-button" onClick={handleIncreaseVolume}>
@@ -116,22 +124,17 @@ const RemoteControl: React.FC = () => {
             </div>
         </div>
         <div className="grid grid-cols-3 gap-2 mt-4">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((num) => (
-            <button
-              key={num}
-              className="px-2 py-1 bg-blue-500 rounded control-button"
-              onClick={() => handleNumericInput(num)}
-            >
-              {num}
-            </button>
-          ))}
-        </div>
-        <button className="px-2 py-1 bg-blue-500 rounded mt-4 control-button" onClick={handleBackspace}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Backspace
-        </button>
+  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((num) => (
+    <button
+      key={num}
+      className={`px-2 py-1 bg-blue-500 rounded control-button ${num === 0 ? 'col-span-3' : ''}`}
+      onClick={() => handleNumericInput(num)}
+    >
+      {num}
+    </button>
+  ))}
+</div>
+
       </div>
     </div>
   );
