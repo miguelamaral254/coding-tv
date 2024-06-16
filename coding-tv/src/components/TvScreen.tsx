@@ -42,10 +42,10 @@ const TVScreen: React.FC<TVScreenProps> = ({ channel, isOn }) => {
             className="max-w-full max-h-full"
           />
         ) : (
-          <div className="text-white">Loading...</div>
+          <div className="text-white">not signal..</div>
         )
       ) : (
-        <div className="text-white">No Signal</div>
+        <div className="text-white"></div>
       )}
     </div>
   );
